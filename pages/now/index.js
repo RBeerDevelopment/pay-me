@@ -56,15 +56,30 @@ export default function MainComponent({ stripeCheckoutUrl }) {
 }
 
 export async function getServerSideProps(context) {
+    const stripe = require('stripe')(process.env.STRIPE_SK);
+
     const { amount, description } = context.query;
-    const res = await fetch(
-        `http://localhost:3000/api/stripe?amount=${amount}&description=${description}`
-    );
-    const data = await res.json();
+
+    const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [
+            {
+                price_data: {
+                    unit_amount: parseFloat(amount) * 100,
+                    product_data: { name: description },
+                    currency: 'eur',
+                },
+                quantity: 1,
+            },
+        ],
+        mode: 'payment',
+        success_url: process.env.STRIPE_SUCCESS_URL,
+        cancel_url: process.env.STRIPE_FAILURE_URL,
+    });
 
     return {
         props: {
-            stripeCheckoutUrl: data.url,
+            stripeCheckoutUrl: session.url,
         },
     };
 }
