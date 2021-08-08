@@ -1,4 +1,4 @@
-# Personal Pay (working title :wink:)
+# Pay Me
 
 This is a small Next.js application which allows you to share one link which lets other pay you in multiple different ways.
 
