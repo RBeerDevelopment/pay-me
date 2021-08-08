@@ -1,7 +1,6 @@
 import Footer from '@components/footer/Footer';
 import NavBar from '@components/navBar/NavBar';
 import CopyableText from '@components/copyableText/CopyableText';
-import DetailsCard from '@components/detailsCard/DetailsCard';
 
 import { useRouter } from 'next/router';
 
@@ -13,6 +12,8 @@ const QRCode = require('qrcode.react');
 
 export default function MainComponent() {
     const router = useRouter();
+
+    const { amount, description } = router.query;
 
     const name = process.env.NEXT_PUBLIC_NAME;
     const iban = process.env.NEXT_PUBLIC_IBAN;
