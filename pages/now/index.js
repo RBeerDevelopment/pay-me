@@ -19,7 +19,6 @@ export default function MainComponent({ stripeCheckoutUrl }) {
     const redirectToSepaPage = () => {
         router.push({
             pathname: 'sepa',
-            query: { amount, description },
         });
     };
 
