@@ -30,7 +30,7 @@ export default function MainComponent({ stripeCheckoutUrl }) {
                 <div className='bg-white w-80 mx-12 mb-8 p-8 space-y-4 rounded-md content-center flex flex-col flex-wrap'>
                     <p className=' text-center text-xl'>Pay with</p>
                     <a
-                        href={`${process.env.NEXT_PUBLIC_PAYPAL_ME_BASE_URL}/${amount}`}
+                        href={`https://www.paypal.com/paypalme/${process.env.NEXT_PUBLIC_PAYPAL_ME_USERNAME}/${amount}`}
                         className='mt-2 px-4 py-2 rounded bg-paypal hover:bg-green-600 text-white font-semibold text-center block w-full focus:outline-none focus:ring focus:ring-offset-2 focus:ring-green-600 focus:ring-opacity-80 cursor-pointer'
                     >
                         PayPal

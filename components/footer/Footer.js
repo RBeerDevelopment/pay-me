@@ -5,8 +5,11 @@ export default function Footer() {
         <footer className='flex items-center justify-center w-full h-auto'>
             <p className='text-md text-center text-gray-500'>
                 Copyright ©{' '}
-                <a className='text-md text-gray-900' href='https://robin.beer/'>
-                    Robin Beer
+                <a
+                    className='text-md text-gray-900'
+                    href={`${process.env.NEXT_PUBLIC_COPYRIGHT_URL}`}
+                >
+                    {process.env.NEXT_PUBLIC_NAME}
                 </a>
                 <br />
                 2021
